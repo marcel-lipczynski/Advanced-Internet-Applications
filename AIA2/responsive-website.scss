@@ -1,0 +1,196 @@
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Tahoma;
+    font-size: 16px;
+    font-weight: normal;
+    text-decoration: none;
+    color: black;
+}
+
+body, html{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+// 
+body{
+
+    $default-font: 16px;
+    $specific-green-color: #CEE1B6;
+    $default-margin: 15px;
+    $default-border: 2px solid black;
+
+    display: flex;
+    flex-direction: column;
+
+    .content{
+        flex: 1 0 auto;
+    
+        .site-header{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 30px;
+            
+            .title{
+                margin-left: 15px;
+                font-size: 2*$default-font;
+                font-family: 'Times New Roman', Times, serif;
+                
+            }
+        
+            .logo{
+                height: 4em;
+                width: 4em;
+            }
+        
+            .navigation{
+                display: flex;
+                flex-grow: 2;
+                align-self: flex-start;
+                flex-direction: row;
+                justify-content: flex-end;
+                
+                a{
+                    width: 75px;
+                }
+        
+                #burger{
+                    display: none;
+                    background-color: $specific-green-color;
+                    border: $default-border;
+                    border-radius: 30%;
+                    justify-content: flex-end;
+        
+        
+                    .menuToggle{
+                        display: none;
+                        width:35px;
+                        height: 2px;
+                        background-color: black;
+                        margin: 10px 10px;
+                    
+                    }
+        
+                }
+            }
+        }
+        
+        
+        
+        main{
+            display: flex;
+            flex-direction: row;
+            padding: 15px;
+        
+            article{
+                width: 100%;
+                border: $default-border;
+                margin: $default-margin;
+                display: flex;
+                flex-direction: column;
+                background-color: $specific-green-color;
+            
+                header{
+                    height: 50px;
+                    width: 50%;
+                    font-size: 1.5 * $default-font;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    align-self: flex-end;
+                    border-bottom: $default-border;
+                    border-left: $default-border;
+            
+                }
+            
+                #first-article{
+                    background-color: cyan;
+                }
+                #second-article{
+                    background-color: orange;
+                }
+                
+                #third-article{
+                    background-color: pink;
+                }
+            
+                p{
+                    text-align: justify;
+                    padding: 40px 20px;
+                }
+            }
+        }
+    
+    }
+
+
+    footer{
+        display: flex;
+        flex-direction: column;
+        height: 100px;
+        background-color: $specific-green-color;
+        border-top: $default-border;
+        margin-top: $default-margin;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    
+        .author{
+            font-weight: bold;
+        }
+        
+    }
+}
+
+/* Mobile */
+@media all and (max-width: 599px) {
+    main{
+        flex-wrap: wrap;
+    }
+    .title{
+        display: none;
+    }
+
+    nav a{
+        display: none;
+    }
+
+    body .content .site-header .navigation #burger .menuToggle{
+        display: block;
+    }
+    body .content .site-header .navigation #burger{
+        display: block;
+    }
+
+}
+
+/* Tablet */
+@media all and (min-width: 600px) and (max-width: 1023px){
+    main{
+        flex-wrap: wrap;
+    }
+        
+    article{
+        flex: 1 0 45%;
+    }
+    article:first-child{
+        flex: 0 1 100%;
+    }
+        
+    nav a{
+        display: none;
+    }
+    body .content .site-header .navigation #burger .menuToggle{
+        display: block;
+    }
+    body .content .site-header .navigation #burger{
+        display: block;
+    }
+}
+
+
+

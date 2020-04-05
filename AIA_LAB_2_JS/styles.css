@@ -1,0 +1,14 @@
+th{
+    width: 33.3%
+}
+
+tr:nth-child(even){
+    background-color: grey;
+}
+
+tr:nth-child(odd){
+    background-color: white;
+}
+
+
+

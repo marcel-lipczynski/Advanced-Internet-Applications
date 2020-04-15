@@ -21,7 +21,7 @@ class CourseItem extends Component {
           </div>
           <div className="course_element_action">
             <button id="rateButton">Rate</button>
-            <button id="deleteButton">Delete</button>
+            <button id="deleteButton" onClick={() => this.props.deleteCourse(this.props.id)}>Delete</button>
           </div>
         </div>
       </li>

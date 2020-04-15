@@ -8,21 +8,11 @@ import coursesJson from "./assets/courses.json";
 class App extends Component {
   constructor() {
     super();
+
     this.state = {
-      courses: coursesJson.map((course) => {
-        return (
-          <CourseItem
-            key={course.id}
-            name={course.name}
-            rating={course.rating}
-            description={course.description}
-            image={course.image}
-          />
-        );
-      }),
+      courses: coursesJson.map((course) => course),
       showForm: false,
     };
-    this.showModalHandler = this.showModalHandler.bind(this);
   }
 
   showModalHandler = () => {
@@ -33,7 +23,32 @@ class App extends Component {
     });
   };
 
+  deleteCourseHandler = (id) => {
+    console.log(id)
+    this.setState((prevState) => {
+      return {
+        courses: prevState.courses.filter((course) => course.id !== id)
+      };
+    });
+  };
+
   render() {
+
+    const courseItems = this.state.courses.map(course =>{
+      return(
+        <CourseItem
+        key={course.id}
+        id={course.id}
+        name={course.name}
+        rating={course.rating}
+        description={course.description}
+        image={course.image}
+        deleteCourse={this.deleteCourseHandler}
+      />
+      );
+
+    });
+
     return (
       <div className="app">
         <HeaderComponent showModal={this.showModalHandler} />
@@ -55,9 +70,7 @@ class App extends Component {
               <option>Rating</option>
             </select>
           </section>
-          <ul id="course-list">
-            {this.state.courses}
-          </ul>
+          <ul id="course-list">{courseItems}</ul>
         </main>
       </div>
     );

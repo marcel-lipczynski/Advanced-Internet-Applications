@@ -12,6 +12,7 @@ class App extends Component {
     this.state = {
       courses: coursesJson.map((course) => course),
       showForm: false,
+      filterInput: "",
     };
   }
 
@@ -24,30 +25,39 @@ class App extends Component {
   };
 
   deleteCourseHandler = (id) => {
-    console.log(id)
+    console.log(id);
     this.setState((prevState) => {
       return {
-        courses: prevState.courses.filter((course) => course.id !== id)
+        courses: prevState.courses.filter((course) => course.id !== id),
       };
     });
   };
 
-  render() {
-
-    const courseItems = this.state.courses.map(course =>{
-      return(
-        <CourseItem
-        key={course.id}
-        id={course.id}
-        name={course.name}
-        rating={course.rating}
-        description={course.description}
-        image={course.image}
-        deleteCourse={this.deleteCourseHandler}
-      />
-      );
-
+  handleChange = (event) => {
+    this.setState({
+      filterInput: event.target.value,
     });
+  };
+
+  render() {
+    const courseItems = this.state.courses
+      .filter(
+        (course) =>
+          this.state.filterInput === "" || course.name.includes(this.state.filterInput)
+      )
+      .map((course) => {
+        return (
+          <CourseItem
+            key={course.id}
+            id={course.id}
+            name={course.name}
+            rating={course.rating}
+            description={course.description}
+            image={course.image}
+            deleteCourse={this.deleteCourseHandler}
+          />
+        );
+      });
 
     return (
       <div className="app">
@@ -62,7 +72,9 @@ class App extends Component {
               type="text"
               placeholder="Search for a course..."
               name="filterInput"
+              value={this.state.filterInput}
               id="filterInput"
+              onChange={this.handleChange}
             />
             <select id="sortBy">
               <option defaultChecked>Sort by</option>

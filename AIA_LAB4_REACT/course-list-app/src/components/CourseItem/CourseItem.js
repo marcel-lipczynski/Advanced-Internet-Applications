@@ -16,6 +16,7 @@ class CourseItem extends Component{
                 <div className="course_element_section">
                     <div className="course_element_info">
                         <h2>JavaScrip Complete Guide</h2>
+                        <p className="description">Would recommend!</p>
                         <p>5/5 stars</p>
                     </div>
                     <div className="course_element_action">

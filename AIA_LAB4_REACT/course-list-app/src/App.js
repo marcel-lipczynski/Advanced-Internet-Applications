@@ -24,6 +24,8 @@ class App extends Component {
           </section>
           <ul id="course-list">
             <CourseItem/>
+            <CourseItem/>
+            
           </ul>
         </main>
       </div>

@@ -6,10 +6,10 @@
     display: flex;
 }
 
-.course_element p{
+/* .course_element p{
     display: inline;
 
-}
+} */
 
 .course_element_image{
     flex: 1;
@@ -23,7 +23,25 @@
     object-fit: cover;
 }
 
-.course_element_info p{
+.course_element_info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.course_element_info p:first-of-type{
+    white-space: pre-wrap;
+    color: black;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    background-color: white;
+    padding: 0.25rem 1rem;
+    margin-bottom: 0.5rem;
+    
+}
+
+.course_element_info p:last-of-type{
     color: white;
     background-color: #f67722;
     border-radius: 15px;
@@ -50,5 +68,13 @@
     justify-content: flex-end;
 }
 
+#deleteButton{
+    background-color: #C83820;
+    border: 1px solid #C83820;
+}
 
+#rateButton{
+    background-color: #1112ED;
+    border: 1px solid #1112ED;
+}
 

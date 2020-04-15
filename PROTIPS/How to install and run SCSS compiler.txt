@@ -1,0 +1,7 @@
+Jak zainstalowaæ i odpaliæ SCSS:
+0) npm init - stworzy package.json
+1) npm install node-sass  --save-dev - instaluje node-modules do sassa
+2) sudo npm install live-server -g - instaluje live server ktory bedzie sie automatycznie updatowa³
+3) "compile:sass": "node-sass styles.scss styles.css -w" - dopisujemy to w skryptach w package.json
+4) npm run compile:sass - odpalamy kompilowanie scss na css
+5) live-server - odpalamy live server

@@ -1,0 +1,42 @@
+FLEXBOX TUTORIAL:
+
+1) justify-content:
+-flex-start: Elementy wyrównuj¹ siê do lewej strony kontenera.
+-flex-end: Elementy wyrównuj¹ siê do prawej strony kontenera.
+-center: Elementy wyrównuj¹ siê do œrodka kontenera.
+-space-between: Elementy wyœwietlaj¹ siê na ca³ej szerokoœci kontenera z równymi odstêpami.
+-space-around: Ka¿dy z elementów wyœwietla siê z tak¹ sam¹ iloœci¹ przestrzeni wokó³.
+
+2) align-items
+-flex-start: Elementy wyrównuj¹ siê do górnej krawêdzi kontenera.
+-flex-end: Elementy wyrównuj¹ siê do dolnej krawêdzi kontenera.
+-center: Elementy zostan¹ wyœrodkowane w pionie.
+-baseline: Elementy zostan¹ wyœwietlone na linii odniesienia kontenera.
+-stretch: Elementy zostan¹ powiêkszone tak, aby wype³niæ kontener.
+
+3)flex-direction
+-row: Elementy zostan¹ rozmieszczone tak jak tekst.
+-row-reverse: Elementy zostan¹ rozmieszczone odwrotnie do kierunku tekstu.
+-column: Elementy zostan¹ rozmieszczone od góry do do³u.
+-column-reverse: Elementy zostan¹ rozmieszczone od do³u do góry.
+
+4) order
+Ustawia kolejnoœæ elementu w hierarchi elementów.
+Domyœlnie ustawione na zero.
+
+5)align-self - ma takie same wartoœci co align-items ale odnosi siê do jednego elementu! np. .yellow{}
+
+6) flex-wrap - do rozpraszania elementów:
+-nowrap: Ka¿dy element dopasowuje siê do pojedynczego wiersza.
+-wrap: Elementy wystaj¹ce przechodz¹ do kolejnych linii.
+-wrap-reverse: Elementy wystaj¹ce do kolejnych linii w odwrotnej kolejnoœci.
+
+7) flex-flow = flex-direction + flex-wrap na przyk³ad: flex-flow: row wrap
+
+8) align-content - pozwala ustaliæ odleg³oœæ wierszy od siebie:
+-flex-start: Wiersze upychaj¹ u góry kontenera.
+-flex-end: Wiersze upychaj¹ siê w dolnej czêœci kontenera.
+-center: Wiersze upychane s¹ poœrodku kontenera.
+-space-between: Wiersze wyœwietlane s¹ z równymi odstêpami.
+-space-around: Wiersze wyœwietlane s¹ z równymi odstêpami dooko³a.
+-stretch: Wiersze rozszerzaj¹ siê tak, aby dopasowaæ siê do kontenera.

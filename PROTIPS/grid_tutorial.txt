@@ -1,0 +1,10 @@
+1) grid-column-start: n; - w której od lewej pionowej granicy umieœciæ element;
+2) grid-column-end: n; w po³¹czeniu z tym wy¿ej pokryje pola od -start do -end;
+3) grid-column-end: span n; mówi na jak¹ szerokoœæ od startu rozszerzyæ element
+4) grid-column: 3/4 - ustala pierwsz¹ wartoœæ jako liniê start a drug¹ po ukoœniku jako liniê end;
+5) grid-area: 1/2/3/4 - akceptuje grid-row-start / grid-column-start / grid-row-end/ grid-column-end
+6) order - jeœli grid-area s¹ nie s¹ jednoznacznie umiejscowione to dajemy order ¿eby ustaliæ kolejnoœæ
+7) grid-template-columns: 20% 20% 20% 20% 20%; piêæ kolumn, ka¿da po 20% pe³nej szerokoœci,
+8) grid-template-rows: 20% 20% 20% 20% 20%; piêæ rzêdów, ka¿dy po 20% pe³nej wysokoœci.
+9) grid-template-columns: repeat(5, 20%); - nie trzeba powtarzaæ atrybutów
+10) grid-template-columns jednostki: 100px, 3em, 40%, u³amek fr 

@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import './HeaderComponent.css';
 
 class HeaderComponent extends Component{
-    // constructor(){
-    //     super();
-    // }
+    constructor(props){
+        super(props);
+    }
 
     render(){
         return(
             <header>
                 <h1>Course List</h1>
-                <button>Add course</button>
+                <button onClick={this.props.showModal}>Add course</button>
             </header>
         );
     }

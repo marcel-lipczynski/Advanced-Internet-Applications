@@ -2,16 +2,16 @@ import React, { Component } from "react";
 import "./CourseForm.css"
 
 class CourseForm extends Component {
-  // constructor(){
-  //     super();
-  // }
+  constructor(props){
+      super(props);
+  }
 
   render() {
     return (
       <div className="modal card">
         <div className="modal_content">
-          <label for="title">Course title</label>
-          <input type="text" name="title" id="title" />
+          <label for="name">Course name</label>
+          <input type="text" name="name" id="name" />
           <label for="image-url">Image URL</label>
           <input type="text" name="image-url" id="image-url" />
           <label for="description">Description</label>
@@ -20,8 +20,8 @@ class CourseForm extends Component {
           <input type="number" name="rating" id="rating" />
         </div>
         <div className="modal_actions">
-          <button className="">Cancel</button>
-          <button className="">Add</button>
+          <button id="cancelButton" onClick={this.props.showModal}>Cancel</button>
+          <button id="addButton">Add</button>
         </div>
       </div>
     );

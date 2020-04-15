@@ -1,13 +1,14 @@
 import React, { Component } from "react";
+import "./CourseForm.css"
 
 class CourseForm extends Component {
   // constructor(){
   //     super();
   // }
 
-  redner() {
+  render() {
     return (
-      <div className="modal_card">
+      <div className="modal card">
         <div className="modal_content">
           <label for="title">Course title</label>
           <input type="text" name="title" id="title" />

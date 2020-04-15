@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import HeaderComponent from "./components/HeaderComponent/HeaderComponent";
 import CourseItem from "./components/CourseItem/CourseItem"
+import CourseForm from "./components/CourseForm/CourseForm"
 
 class App extends Component {
   // constructor() {
@@ -12,6 +13,7 @@ class App extends Component {
     return (
       <div className="app">
         <HeaderComponent />
+        {/* <CourseForm /> */}
         <main>
           <section id="entry-text" className="card">
             <p>List of your favourite courses</p>

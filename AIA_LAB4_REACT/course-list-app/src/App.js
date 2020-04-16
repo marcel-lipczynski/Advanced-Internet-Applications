@@ -4,19 +4,47 @@ import HeaderComponent from "./components/HeaderComponent/HeaderComponent";
 import CourseItem from "./components/CourseItem/CourseItem";
 import CourseForm from "./components/CourseForm/CourseForm";
 import coursesJson from "./assets/courses.json";
+import RateCourseComponent from "./components/RateCourseComponent/RateCourseComponent";
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
+      idOfRatedItem: "",
       id: 3,
       courses: coursesJson.map((course) => course),
       showForm: false,
+      showRatingForm: false,
       filterInput: "",
       sortBy: "",
     };
   }
+
+  addNewRating = (id, rating) => {
+    console.log(id);
+    console.log(rating);
+    const courses = [...this.state.courses];
+    const chosenCourse = courses.filter((course) => course.id === id)[0]
+    chosenCourse.rating = rating;
+    console.log(chosenCourse);
+    
+    // chosenCourse.key = id;
+    const newCourseArray = courses.map((course) => {
+      if (course.id === id) {
+        return chosenCourse;
+      }
+      return course;
+    });
+
+    this.setState((prevState) => {
+      return{
+        courses: newCourseArray,
+        showRatingForm: !prevState.showRatingForm
+      }
+      
+    });
+  };
 
   addCourseHandler = (name, imageUrl, rating, description) => {
     this.setState((prevState) => {
@@ -41,6 +69,23 @@ class App extends Component {
     this.setState((prevState) => {
       return {
         showForm: !prevState.showForm,
+      };
+    });
+  };
+
+  showRatingModalHandler = (id) => {
+    this.setState((prevState) => {
+      return {
+        showRatingForm: !prevState.showRatingForm,
+        idOfRatedItem: id,
+      };
+    });
+  };
+
+  showRatingModalHandler2 = () => {
+    this.setState((prevState) => {
+      return {
+        showRatingForm: !prevState.showRatingForm,
       };
     });
   };
@@ -85,6 +130,7 @@ class App extends Component {
             description={course.description}
             image={course.image}
             deleteCourse={this.deleteCourseHandler}
+            rateCourse={this.showRatingModalHandler}
           />
         );
       });
@@ -93,7 +139,17 @@ class App extends Component {
       <div className="app">
         <HeaderComponent showModal={this.showModalHandler} />
         {this.state.showForm ? (
-          <CourseForm showModal={this.showModalHandler} addCourse={this.addCourseHandler} />
+          <CourseForm
+            showModal={this.showModalHandler}
+            addCourse={this.addCourseHandler}
+          />
+        ) : null}
+        {this.state.showRatingForm ? (
+          <RateCourseComponent
+            showRatingModal={this.showRatingModalHandler2}
+            editRating={this.addNewRating}
+            currentId={this.state.idOfRatedItem}
+          />
         ) : null}
         <main>
           <section id="entry-text" className="card">

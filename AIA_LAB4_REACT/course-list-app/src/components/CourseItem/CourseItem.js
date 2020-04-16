@@ -20,8 +20,18 @@ class CourseItem extends Component {
             <p>{this.props.rating}/5 stars</p>
           </div>
           <div className="course_element_action">
-            <button id="rateButton">Rate</button>
-            <button id="deleteButton" onClick={() => this.props.deleteCourse(this.props.id)}>Delete</button>
+            <button
+              id="rateButton"
+              onClick={() => this.props.rateCourse(this.props.id)}
+            >
+              Rate
+            </button>
+            <button
+              id="deleteButton"
+              onClick={() => this.props.deleteCourse(this.props.id)}
+            >
+              Delete
+            </button>
           </div>
         </div>
       </li>

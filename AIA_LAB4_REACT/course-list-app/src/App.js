@@ -10,11 +10,32 @@ class App extends Component {
     super();
 
     this.state = {
+      id: 3,
       courses: coursesJson.map((course) => course),
       showForm: false,
       filterInput: "",
+      sortBy: "",
     };
   }
+
+  addCourseHandler = (name, imageUrl, rating, description) => {
+    this.setState((prevState) => {
+      return {
+        courses: [
+          ...prevState.courses,
+          {
+            id: prevState.id + 1,
+            rating: rating,
+            name: name,
+            description: description,
+            image: imageUrl,
+          },
+        ],
+        id: prevState + 1,
+        showForm: false,
+      };
+    });
+  };
 
   showModalHandler = () => {
     this.setState((prevState) => {
@@ -35,7 +56,7 @@ class App extends Component {
 
   handleChange = (event) => {
     this.setState({
-      filterInput: event.target.value,
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -43,8 +64,17 @@ class App extends Component {
     const courseItems = this.state.courses
       .filter(
         (course) =>
-          this.state.filterInput === "" || course.name.includes(this.state.filterInput)
+          this.state.filterInput === "" ||
+          course.name.includes(this.state.filterInput)
       )
+      .sort((course1, course2) => {
+        switch (this.state.sortBy) {
+          case "title":
+            return course1.name.localeCompare(course2.name);
+          case "rating":
+            return parseInt(course2.rating) - parseInt(course1.rating);
+        }
+      })
       .map((course) => {
         return (
           <CourseItem
@@ -63,7 +93,7 @@ class App extends Component {
       <div className="app">
         <HeaderComponent showModal={this.showModalHandler} />
         {this.state.showForm ? (
-          <CourseForm showModal={this.showModalHandler} />
+          <CourseForm showModal={this.showModalHandler} addCourse={this.addCourseHandler} />
         ) : null}
         <main>
           <section id="entry-text" className="card">
@@ -76,10 +106,15 @@ class App extends Component {
               id="filterInput"
               onChange={this.handleChange}
             />
-            <select id="sortBy">
-              <option defaultChecked>Sort by</option>
-              <option>Title</option>
-              <option>Rating</option>
+            <select
+              id="sortBy"
+              value={this.state.sortBy}
+              onChange={this.handleChange}
+              name="sortBy"
+            >
+              <option value="">Sort by</option>
+              <option value="title">Title</option>
+              <option value="rating">Rating</option>
             </select>
           </section>
           <ul id="course-list">{courseItems}</ul>

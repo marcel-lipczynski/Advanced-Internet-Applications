@@ -1,0 +1,33 @@
+<%- include('./includes/head') %>
+</head>
+
+
+<body>
+    <%- include('./includes/navbar') %>
+
+    <main>
+    <% if(prods.length > 0) { %>
+        <div class="grid">
+            <% for (let product of prods) { %>
+            <article class="card"> 
+                <header class="card__header">
+                    <h1 class="card__header-title"><%= product.name %></h1>
+                </header>
+                <div class="card__image">
+                    <img src="<%= product.imageUrl %>" alt="<%= product.name %>">
+                </div>
+                <div class="card__content">
+                    <h2 class="price"><%= product.price %>PLN</h2>
+                </div>
+                <div class="card__actions">
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </article>
+            <% } %>
+        </div>
+    <% } else { %>
+        <h1>No products found!</h1>
+    <% } %>
+    </main>
+
+<%- include('./includes/end') %>

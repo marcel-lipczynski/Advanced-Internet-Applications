@@ -5,12 +5,27 @@
         <%- include('./includes/navbar.ejs') %>
         <main>
             <% if (products.length > 0) { %>
-                <ul>
+                <ul class="cart__item-list">
+                        <% if (someoneBought) { %>
+                            <li class="cart__item alert">
+                                <h1 class="alert-text">Some products has been bought. Cart adjusted.</h1>
+                            </li>
+                        <% } %>
+                        <li class="cart__item">
+                            <form action="/cart-buy" method="POST">
+                                <button type="submit" class="btn">Buy</button>
+                            </form>
+                            <h2>Total: <%= totalPrice%>PLN</h2>
+                            <form action="/clear-cart" method="POST">
+                                <button type="submit" class="btn danger">Clear cart</button>
+                            </form>
+                        </li>
                     <% products.forEach(product => { %>
-                        <li>
-                            <p><%= product.name %> - <%= product.price %>PLN</p>
+                        <li class="cart__item">
+                            <h1><%= product.name %> </h1>
+                            <h2><%= product.price %>PLN</h2>
                             <form action="/cart-delete-item" method="POST">
-                                <button class="btn" type="submit">Delete</button>
+                                <button class="btn danger"  type="submit">Delete</button>
                                 <input type="hidden" value="<%= product.id %>" name="productId">
                             </form>
                         </li>
@@ -18,7 +33,15 @@
                     <% }) %>
                 </ul>
             <% } else { %>
-                <h1>No products in the cart!</h1>
+                <% if (success) { %>
+                    <ul class="cart__item-list">
+                        <li class="cart__item success">
+                            <h1 class="success-text">Items bought successfully! :) </h1>
+                        </li>
+                    </ul>
+                <% } else { %>
+                    <h1>No products in the cart!</h1>
+                <% } %> 
             <% } %> 
         </main>
 

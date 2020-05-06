@@ -130,3 +130,58 @@ main {
   font-weight: bold;
   font-size: 1.5rem;
 }
+
+.cart__item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin: auto;
+  width: 40rem;
+  max-width: 90%;
+}
+
+.cart__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.cart__item h1,
+.cart__item h2 {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.danger{
+  background: #cc0000;
+  border: 1px solid #cc0000;
+}
+
+.danger:hover{
+  color:#cc0000;
+  background: white;
+
+}
+
+.alert{
+  background-color: red;
+  justify-content: center;
+}
+
+.alert-text{
+  color: white;
+  font-weight: bold;
+}
+
+.success{
+  background-color: #006622;
+  justify-content: center;
+}
+
+.success-text{
+  color: white;
+  font-weight: bold;
+}

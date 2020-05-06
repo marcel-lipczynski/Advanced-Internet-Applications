@@ -1,0 +1,4 @@
+INSERT INTO products(name,price,imageUrl) VALUES('Boxing gloves', 10.99, 'https://bit.ly/2KZzWmy');
+INSERT INTO products(name,price,imageUrl) VALUES('Boxing helmet', 30.99, 'https://bit.ly/3fpSkD5');
+INSERT INTO products(name,price,imageUrl) VALUES('Boxing bandage', 2.99, 'https://bit.ly/2W6ieEo');
+INSERT INTO products(name,price,imageUrl) VALUES('Boxing bag', 100.99, 'https://bit.ly/2YGaomn');

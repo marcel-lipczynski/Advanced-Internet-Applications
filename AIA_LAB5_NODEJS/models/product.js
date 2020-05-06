@@ -15,4 +15,8 @@ module.exports = class Product {
     static findById(id){
         return db.query('SELECT * FROM products WHERE id=?', id)
     }
+
+    static deleteById(id){
+        return db.query(`DELETE FROM products WHERE id IN (${'?'.repeat(id.length).split('').join(',')})`, id);
+    }
 }

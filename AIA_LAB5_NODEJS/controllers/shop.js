@@ -21,7 +21,6 @@ exports.getCart = (req, res, next) => {
 
   Product.fetchAll()
     .then(([products]) => {
-      console.log(req.session.cart);
       if (req.session.cart != null) {
         for (product of products) {
           if (req.session.cart.items.find((prod) => prod.id === product.id)) {
@@ -32,7 +31,6 @@ exports.getCart = (req, res, next) => {
       }
 
       req.session.cart = cart;
-      console.log(req.session.cart.items);
       res.render("cart", {
         products: req.session.cart.items,
         pageTitle: "Cart",
@@ -54,4 +52,14 @@ exports.postCart = (req, res, next) => {
       res.redirect("/");
     })
     .catch((err) => console.log(err));
+};
+
+
+exports.postCartDeleteProduct = (req, res, next) => {
+    const prodId = req.body.productId;
+    console.log(prodId);
+    const cart = new Cart(req.session.cart);
+    cart.delete(prodId);
+    req.session.cart = cart;
+    res.redirect('/cart');
 };

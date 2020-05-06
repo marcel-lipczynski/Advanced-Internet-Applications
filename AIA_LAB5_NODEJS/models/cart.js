@@ -15,13 +15,15 @@ module.exports = class Cart{
         }
     }
 
-    // delete(id){
-    //     const productInCart = this.items.find(prod => prod.id === id);
-    //     if(productInCart){
-    //         this.items.find
-    //     }
+    delete(id){
+        const productIndex = this.items.findIndex(prod => prod.id === +id);
+        console.log(productIndex);
+        if(productIndex != -1){
+            this.totalPrice -= +this.items[productIndex].price;
+            this.items.splice(productIndex, 1);
+        }
 
-    // }
+    }
 
 
 }

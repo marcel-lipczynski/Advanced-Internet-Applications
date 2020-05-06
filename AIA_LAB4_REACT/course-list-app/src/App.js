@@ -22,13 +22,11 @@ class App extends Component {
   }
 
   addNewRating = (id, rating) => {
-    console.log(id);
-    console.log(rating);
     const courses = [...this.state.courses];
-    const chosenCourse = courses.filter((course) => course.id === id)[0]
+    const chosenCourse = courses.filter((course) => course.id === id)[0];
     chosenCourse.rating = rating;
     console.log(chosenCourse);
-    
+
     // chosenCourse.key = id;
     const newCourseArray = courses.map((course) => {
       if (course.id === id) {
@@ -38,11 +36,10 @@ class App extends Component {
     });
 
     this.setState((prevState) => {
-      return{
+      return {
         courses: newCourseArray,
-        showRatingForm: !prevState.showRatingForm
-      }
-      
+        showRatingForm: !prevState.showRatingForm,
+      };
     });
   };
 
@@ -118,6 +115,8 @@ class App extends Component {
             return course1.name.localeCompare(course2.name);
           case "rating":
             return parseInt(course2.rating) - parseInt(course1.rating);
+          default:
+            return course1
         }
       })
       .map((course) => {

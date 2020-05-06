@@ -21,10 +21,7 @@ app.use(
   })
 );
 
-// app.use("/", (req, res, next) => {
-//     res.render('shop');
-// });
 
 app.use(shopRoutes);
 
-app.listen(3001);
+app.listen(3000);
